@@ -1,17 +1,8 @@
 import express from 'express'
+import { getComment } from '../../controllers/tweetController.js';
 
 const router=express.Router();
 
-router.get('/',(req,res)=>{
-    res.json({
-        msg : "Welcome to the comment section"
-    })
-})
+router.use("/",getComment)
 
-router.get('/:id',(req,res)=>{
-    res.json({
-        comment:"What a comments man on your posts"
-    })
-})
-
-export default router;
+export default router

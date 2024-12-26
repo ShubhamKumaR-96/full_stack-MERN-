@@ -1,18 +1,12 @@
 import express from "express"
+import { createTweets, getTweetId, getTweets } from "../../controllers/tweetController.js";
+import { createManualTweetValidator } from "../../validators/tweetsValidators.js";
 
 const router=express.Router();
 
-router.get('/',(req,res)=>{
-    return res.json({
-        msg:"Welcome to the tweet route version1"
-    })
-})
+router.get("/",getTweets)
+router.get("/:id",getTweetId)
+router.post("/", createManualTweetValidator,  createTweets)
 
-router.get('/:id',(req,res)=>{
-    return res.json({
-        msg:"Welcome to my version1 profile ",
-        id:req.params.id
-    })
-})
 
 export default router;
