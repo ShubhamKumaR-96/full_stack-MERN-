@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Sum</title>
+</head>
+<body>
+    <input id="firstNumber" type="text" placeholder="Enter first number" /><br><br>
+    <input id="secondNumber" type="text" placeholder="Enter second number" /><br><br>
+    <button onclick="calculateSum()">Calculate Sum</button><br><br>
+    <div id="finalSum"></div>
+
+    <script>
+        async function calculateSum() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value);
+            const num2 = parseFloat(document.getElementById('secondNumber').value);
+
+            try {
+                const response = await fetch('http://localhost:4002/sum', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ num1, num2 })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                document.getElementById('finalSum').innerText = data.sum !== undefined ? `Sum: ${data.sum}` : `Error: ${data.error}`;
+            } catch (error) {
+                document.getElementById('finalSum').innerText = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
