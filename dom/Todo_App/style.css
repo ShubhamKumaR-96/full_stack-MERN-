@@ -1,0 +1,58 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --primary-color: #007bff;
+    --border-radius: 5px;
+    --padding: 10px;
+    --font-size: 16px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container{
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #333;
+}
+
+
+
+#todoInput{
+    width: 75%;
+    padding: var(--padding);
+    font-size: var(--font-size);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+#addTodo{
+    padding: var(--padding);
+    font-size: var(--font-size);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+ 
+#addTodo:hover{
+    background-color: white;
+    color: var(--primary-color);
+}
