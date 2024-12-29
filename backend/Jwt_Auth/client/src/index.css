@@ -1,0 +1,4 @@
+/* filepath: /src/styles/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
