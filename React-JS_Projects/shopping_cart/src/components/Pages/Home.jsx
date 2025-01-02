@@ -30,8 +30,8 @@ const Home = () => {
         <Spinner />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 hover:shadow-lg transition-shadow">
-          {posts.map((post) => (
-           <ProductCard post={post} />
+          {posts.map((post,idx) => (
+           <ProductCard post={post} idx={post.id} />
           ))}
         </div>
       )}
